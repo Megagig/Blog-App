@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+development:
+  <<: *default
+  database: Blog-App_dev
+  username: megagig
+  password: password
+  host: localhost
+test:
+  <<: *default
+  database: Blog-App_test
+  username: megagig
+  password: password
+  host: localhost
+production:
+  <<: *default
+  database: Blog-App_prod
+  username: megagig
+  password: password
+  host: localhost
