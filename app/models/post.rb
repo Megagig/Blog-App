@@ -4,4 +4,16 @@ class Post < ApplicationRecord
   # associated likes and comments will also be deleted.
   has_many :comments, foreign_key: 'posts_id', dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  # The function updates the PostCounter attribute of a user by counting
+  # the number of posts they have.
+  def update_posts_counter
+    user.update(PostCounter: user.posts.count)
+  end
+
+  # The function returns the five most recent comments in descending order
+  # of their creation time.
+  def five_most_recent_comments
+    comments.order(created_at: :desc).limit(5)
+  end
 end
