@@ -39,10 +39,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_103335) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "Name"
-    t.string "Photo"
-    t.text "Bio"
-    t.integer "PostCounter"
+    t.string "name"
+    t.string "phone"
+    t.text "bio"
+    t.integer "posts_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
