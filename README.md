@@ -62,7 +62,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)(Coming Soon...)
+- [Live Demo Link](Coming Soon...)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,6 +164,6 @@ I would like to thank the Microverse full-stack curriculum for the inspiration a
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Megagig/Blog-App/blob/development/LICENSE) licensed.
+This project is [MIT](https://github.com/Megagig/Blog-App/blob/feature/Creating-Data-Model/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
