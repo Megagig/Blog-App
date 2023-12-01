@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_082424) do
     t.string "title"
     t.string "text"
     t.integer "comments_counter"
+    t.integer "likes_counter"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
