@@ -3,11 +3,9 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'posts_id', dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  # Add the attributes with default values
   attribute :comments_counter, :integer, default: 0
   attribute :likes_counter, :integer, default: 0
 
-  # Validations
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
@@ -21,6 +19,6 @@ class Post < ApplicationRecord
   private
 
   def update_posts_counter
-    user.update(PostCounter: user.posts.count)
+    user.update(post_counter: user.posts.count)
   end
 end

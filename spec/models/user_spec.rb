@@ -10,7 +10,10 @@ RSpec.describe User, type: :model do
     user = User.new(post_counter: -1)
     expect(user).to_not be_valid
   end
-  it 'should three most recent post' do
-    expect(subject.three_most_recent_posts).to eq(subject.posts.order(updated_at: :desc).limit(3))
+
+  it 'should return three most recent posts' do
+    user = User.create(name: 'John Doe', post_counter: 0)
+    posts = (1..5).map { |i| Post.create(title: "Post #{i}", user: user, comments_counter: 0, likes_counter: 0) }
+    expect(user.three_most_recent_posts).to eq(posts.last(3).reverse)
   end
 end
