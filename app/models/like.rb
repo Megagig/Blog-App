@@ -6,9 +6,9 @@ class Like < ApplicationRecord
 
   private
 
-  # The function `update_post_likes_counter` increments the `LikesCounter`
+  # The function `update_post_likes_counter` increments the `likes_counter`
   # attribute of a post.
   def update_post_likes_counter
-    post.increment!(:LikesCounter)
+    post.increment!(:likes_counter)
   end
 end
