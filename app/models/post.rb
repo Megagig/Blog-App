@@ -21,6 +21,6 @@ class Post < ApplicationRecord
   def update_posts_counter
     # user.update(post_counter: user.posts.count)
     post_count = user.posts.count
-    user.update(post_counter: post_count.zero? ? 0 : post_count) 
+    user.update(post_counter: post_count.zero? ? 0 : post_count)
   end
 end
