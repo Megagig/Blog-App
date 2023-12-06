@@ -1,3 +1,4 @@
+
 <%= render "shared/header" %>
   <div class="single-post">
     <h2><%= @post.title %></h2>
@@ -5,12 +6,12 @@
       <span>Comments: <%= @post.comments_counter %></span>
       <span>Likes: <%= @post.likes_counter %></span>
     </div>
-     <p><%= @post.text %></p>
+    <p><%= @post.text %></p>
   </div>
-
-   <h1 class="comments-header">All comments</h1>
+    
+  <h1 class="comments-header">All comments</h1>
   <div class="post-comments">
-  <% @post.five_most_recent_comments.each do |comment| %>
+  <% @post.comments.each do |comment| %>
       <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
   <% end %>
   </div>
