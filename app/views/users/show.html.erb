@@ -14,7 +14,7 @@
     <p><%= @user.bio %></p>
  </div>
 
- <% @posts.each do |post| %>
+ <% @user.three_most_recent_posts.each do |post| %>
     <div>
       <div class="show-posts">
          <h2><%= post.title %></h2>

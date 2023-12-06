@@ -12,7 +12,7 @@ RSpec.describe 'UsersController', type: :request do
     end
   end
   describe 'GET /user#show' do
-    user = User.create(name: 'John Doe', photo: 'photo_url', bio: 'bio_text', post_counter: 0)
+    user = User.create(name: 'John Doe', photo: 'photo_url', bio: 'bio_text', posts_counter: 0)
     it 'should check if respose status code is correct' do
       get user_path(id: user.id)
       expect(response).to have_http_status(200)
