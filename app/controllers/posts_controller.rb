@@ -4,19 +4,19 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
-    @posts = Post.new
+    @posts = Post.all
   end
 
   # The show method is used to retrieve a specific post from the database and display it to the user.
   def show
+    @user = current_user
     @post = @user.posts.find(params[:id])
     @comment = Comment.new
     @like = Like.new
-    @user = current_user
   end
 
   # The create method is used to create a new post on behalf of the current_user.
-  def create
+  def create_comment
     @post = current_user.posts.build(post_params) # Creates a new post and associates it with the current user
 
     if @post.save # If the post is successfully saved

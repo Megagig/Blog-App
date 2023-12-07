@@ -8,7 +8,7 @@
     </div>
     <p><%= @post.text %></p>
     <div>
-    <%= form_with(url: user_post_likes_path(@post.user, @post), method: :post) do |form| %>
+  <%= form_with(url: user_post_likes_path(@post.user, @post), method: :post) do |form| %>
   <%= form.submit "Like" %>
 <% end %>
     </div>
@@ -16,7 +16,8 @@
   <div class="post-comments">
 
 <%= form_with(model: @comment, url: user_post_comments_path(@post.user, @post), method: :post) do |form| %>
-  <h2>Add a comment</h2>
+  <%= form.submit "Add Comment" %>
+ <h2>Add a comment</h2>
   <%= form.label :text %>
   <%= form.text_area :text %><br>
 
