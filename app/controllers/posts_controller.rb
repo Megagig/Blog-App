@@ -4,11 +4,35 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
+    @posts = Post.all
   end
 
   # The show method is used to retrieve a specific post from the database and display it to the user.
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @user.posts.find(params[:id])
+    @comment = Comment.new
+    @like = Like.new
+  end
+
+  # The create method is used to create a new post on behalf of the current_user.
+  def create_comment
+    @post = current_user.posts.build(post_params) # Creates a new post and associates it with the current user
+
+    if @post.save # If the post is successfully saved
+      @post.increment_posts_counter
+      redirect_to user_posts_path(current_user), notice: 'Successfully created post.' # Redirects to the user's posts
+    else
+      @posts = current_user.posts
+      render :index # Renders the index page with the user's posts if there are errors
+    end
+  end
+
+  private
+
+  # The function `post_params` is used to extract and permit specific parameters from
+  # the `params` object in a Ruby on Rails application.
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
