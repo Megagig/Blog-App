@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show] do
       #Create a new post on behalf of the current_user
       post "/comments", to: "posts#create_comment", as: :post_comments
+       # Create a new comment on a post on behalf of the current_user
+       post "/comments", to: "comments#create_comment", as: :post_comments
+
 
       #Allow the current_user to add a like to a post
       post "/likes", to: "posts#create_like", as: :post_likes
