@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user, foreign_key: 'author_id'
-  has_many :comments, foreign_key: 'posts_id', dependent: :destroy
+  has_many :comments, foreign_key: 'post_id', dependent: :destroy
   has_many :likes, dependent: :destroy
 
   attribute :comments_counter, :integer, default: 0
@@ -19,6 +19,8 @@ class Post < ApplicationRecord
   private
 
   def update_posts_counter
-    user.update(post_counter: user.posts.count)
+    # user.update(post_counter: user.posts.count)
+    post_count = user.posts.count
+    user.update(posts_counter: post_count.zero? ? 0 : post_count)
   end
 end
