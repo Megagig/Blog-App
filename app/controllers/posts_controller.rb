@@ -32,8 +32,6 @@ class PostsController < ApplicationController
 
   # The function `post_params` is used to extract and permit specific parameters from
   # the `params` object in a Ruby on Rails application.
-
-
   def post_params
     params.require(:post).permit(:title, :text)
   end
