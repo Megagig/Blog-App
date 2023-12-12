@@ -1,5 +1,7 @@
 require 'rails_helper'
+
 RSpec.feature 'UserShowPages', type: :feature do
+  include Rails.application.routes.url_helpers
   before do
     @user = User.create!(name: 'John', photo: '/path/to/photo.jpg', posts_counter: 0, bio: 'This is a bio')
     @posts = Array.new(3) do |i|
@@ -31,5 +33,12 @@ RSpec.feature 'UserShowPages', type: :feature do
   it "redirects to the user's post's index page when clicking to see all posts" do
     click_link 'See all posts'
     expect(current_path).to eq user_posts_path(@user)
+  end
+  it "Redirects to the post's show page when clicking on a user's post" do
+    @user.three_most_recent_posts.each do |post|
+      click_link post.title
+      expect(current_path).to eq(user_post_path(@user, post))
+      visit user_path(@user)
+    end
   end
 end
