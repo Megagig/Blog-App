@@ -4,9 +4,11 @@ ruby '3.2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'factory_bot_rails'
 gem 'rails', '~> 7.1.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'rdoc', '~> 6.6.1'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record.
