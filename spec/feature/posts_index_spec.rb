@@ -54,7 +54,7 @@ RSpec.describe 'PostsIndex', type: :feature do
   end
 
   it "redirects to post's show page when clicking on a post" do
-    @posts.each_with_index do |post, index|
+    @posts.each_with_index do |post, _index|
       link = find_link('Read post', href: user_post_path(@user, post))
       link.click
       expect(current_path).to eq user_post_path(@user, post)
