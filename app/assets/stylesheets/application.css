@@ -78,6 +78,7 @@ textarea {
   padding: 1%;
   margin-bottom: 1%;
 }
+
 /* login form style */
 .login-header {
   text-align: center;
@@ -97,29 +98,34 @@ textarea {
 .field {
   width: 80%;
 }
+
 .actions {
   width: 10%;
   margin: -2% 5% 0 0;
 }
+
 .actions input {
   width: 100%;
   height: 3vh;
 }
+
 #user_email,
 #user_password {
   width: 50%;
 }
+
 /* end of login form style */
+
 /* end of form styles */
+
 /* Style for signup and forgot password */
 .Register,
 .Password {
   margin: 0 0 0 30%;
   font-size: 1.2em;
 }
+
 .footer {
-  position: fixed;
-  bottom: 0;
   height: 10vh;
   margin-bottom: 0;
   border-top: 1px solid black;

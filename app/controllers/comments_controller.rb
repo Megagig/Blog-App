@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: current_user))
     if @comment.save
-      cookies[:comment_id]=@comment.id
+      cookies[:comment_id] = @comment.id
       redirect_to user_post_path(@post.user, @post), notice: 'Comment added successfully.'
     else
       render :new
