@@ -78,7 +78,38 @@ textarea {
   padding: 1%;
   margin-bottom: 1%;
 }
+/* login form style */
+.login-header {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 5%;
+}
 
+.login-option {
+  border: none;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.field {
+  width: 80%;
+}
+.actions {
+  width: 10%;
+  margin: -2% 5% 0 0;
+}
+.actions input {
+  width: 100%;
+  height: 3vh;
+}
+#user_email,
+#user_password {
+  width: 50%;
+}
+/* end of login form style */
 /* end of form styles */
 .footer {
   height: 10vh;
