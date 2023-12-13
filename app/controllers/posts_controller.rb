@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     @comment = Comment.new
     @like = Like.new
+    cookies[:post_id] = @post.id if @post.present?
   end
 
   # The create method is used to create a new post on behalf of the current_user.
