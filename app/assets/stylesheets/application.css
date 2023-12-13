@@ -111,7 +111,15 @@ textarea {
 }
 /* end of login form style */
 /* end of form styles */
+/* Style for signup and forgot password */
+.Register,
+.Password {
+  margin: 0 0 0 30%;
+  font-size: 1.2em;
+}
 .footer {
+  position: fixed;
+  bottom: 0;
   height: 10vh;
   margin-bottom: 0;
   border-top: 1px solid black;
