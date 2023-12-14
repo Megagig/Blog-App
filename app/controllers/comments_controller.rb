@@ -17,12 +17,13 @@ class CommentsController < ApplicationController
       render :new
     end
   end
-# This method is used to delete a comment on behalf of the current_user
-def destroy
-  @comment = Comment.find(params[:id])
-  @comment.destroy
-  redirect_to user_post_path(@post.user, @post), notice: 'Comment deleted successfully.'
-end
+
+  # This method is used to delete a comment on behalf of the current_user
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(@post.user, @post), notice: 'Comment deleted successfully.'
+  end
 
   private
 
