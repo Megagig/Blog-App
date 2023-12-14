@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   # The create method is used to create a new post on behalf of the current_user.
-  def create_comment
+  def create
     @post = current_user.posts.build(post_params) # Creates a new post and associates it with the current user
 
     if @post.save # If the post is successfully saved
