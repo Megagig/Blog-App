@@ -40,7 +40,6 @@ class PostsController < ApplicationController
     redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
   end
 
-
   private
 
   # The function `post_params` is used to extract and permit specific parameters from
