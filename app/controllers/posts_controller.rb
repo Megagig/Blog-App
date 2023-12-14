@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   # The index method is used to display all the posts for a given user.
   # The index method will be called when a user navigates to the URL /users/:user_id/posts.
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    current_user = User.find(params[:user_id])
+    @posts = current_user.posts.includes(:comments)
     @posts = Post.all
   end
 
@@ -15,6 +15,10 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @like = Like.new
     cookies[:post_id] = @post.id if @post.present?
+
+    return unless @post.nil?
+
+    redirect_to root_path, alert: 'Comment deleted successfully.'
   end
 
   # The create method is used to create a new post on behalf of the current_user.

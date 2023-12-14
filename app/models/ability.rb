@@ -8,7 +8,7 @@ class Ability
       can :manage, :all # Admins can manage all resources
     else
       can :read, :all
-      can %i[create destroy], [Post, Comment], user_id: user.id
+      can [:create, :destroy], [Post, Comment], user_id: user.id
     end
   end
 end
