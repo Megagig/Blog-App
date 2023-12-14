@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   # The index method is used to display all the posts for a given user.
   # The index method will be called when a user navigates to the URL /users/:user_id/posts.
   def index
@@ -28,6 +29,13 @@ class PostsController < ApplicationController
       render :index # Renders the index page with the user's posts if there are errors
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
+  end
+
 
   private
 
