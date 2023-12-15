@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # The index method is used to display all the posts for a given user.
   # The index method will be called when a user navigates to the URL /users/:user_id/posts.
   def index
-    current_user = User.find(params[:user_id])
+    # current_user = User.find(params[:user_id])
+    @user = current_user
     @posts = current_user.posts.includes(:comments)
     @posts = Post.all
   end

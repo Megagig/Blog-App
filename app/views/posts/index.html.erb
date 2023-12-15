@@ -18,10 +18,10 @@
           <span>Likes: <%= post.likes_counter %></span>
           <h5>
             <%= link_to "Read post", user_post_path(@user, post) %>
-          </h5>
-          <% if can?(:destroy, post) %>
-            <%= button_to "Delete", delete_post_path(author_id: post.user.id, id: post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
-          <% end %>
+            <% if can?(:destroy, post) %>
+              <%= link_to "Delete", user_post_path(@user, post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+            <% end %>
+            </h5>
         </div>
       </div>
     </div>
