@@ -8,8 +8,8 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(
       text: comment_params[:text],
-      user_id: comment_params[:users_id],
-      post_id: comment_params[:users_id]
+      user_id: comment_params[:user_id],
+      post_id: comment_params[:post_id]
     )
     if @comment.save
       @comment.update_post_comments_counter
