@@ -12,7 +12,6 @@ class Api::CommentsController < ApplicationController
       post_id: comment_params[:post_id]
     )
     if @comment.save
-      @comment.update_post_comments_counter
       render json: @comment, status: :created
     else
       render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
