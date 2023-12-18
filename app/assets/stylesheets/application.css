@@ -66,11 +66,18 @@ img {
 /* style the form */
 
 form {
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   width: 25%;
-  margin-left: 30%;
+  margin-left: 40%;
   margin-bottom: 2%;
-  padding: 10%;
+  padding: 1%;
+}
+
+form.button_to {
+  width: 50%;
+  margin-left: 24%;
+  margin-bottom: 2%;
+  padding: 3%;
 }
 
 input,
@@ -94,6 +101,7 @@ textarea {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  padding: 15%;
 }
 
 .login-option input[type='checkbox'] {
@@ -213,7 +221,6 @@ a {
 }
 
 button {
-  width: 10%;
   height: 5vh;
   margin-bottom: 2%;
   margin-left: 40%;

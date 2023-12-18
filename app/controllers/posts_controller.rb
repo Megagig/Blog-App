@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # The index method is used to display all the posts for a given user.
   # The index method will be called when a user navigates to the URL /users/:user_id/posts.
   def index
-    current_user = User.find(params[:user_id])
+    # current_user = User.find(params[:user_id])
+    @user = current_user
     @posts = current_user.posts.includes(:comments)
     @posts = Post.all
   end
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   # The create method is used to create a new post on behalf of the current_user.
-  def create_comment
+  def create
     @post = current_user.posts.build(post_params) # Creates a new post and associates it with the current user
 
     if @post.save # If the post is successfully saved
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    @post.update_posts_counter
     redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
   end
 
